@@ -7,17 +7,18 @@ import GameOver   from './components/GameOver';
 export default function App() {
   const {
     state, startGame, setConfig, getBest,
-    spawnBubble, hitBubble, missBubble, escapeBubble, removeFeedback,
+    spawnBubble, hitBubble, missBubble, escapeBubble,
+    removeFeedback, togglePause, quitToMenu,
   } = useGame();
 
   return (
-    <div style={{ width:'100%', minHeight:'100vh', display:'flex', flexDirection:'column', background:'#0D0D1A' }} lang="fr">
-      <h2 className="sr-only">BubblePop! — Jeu de mémoire</h2>
+    <div style={{ width:'100%', minHeight:'100dvh', display:'flex', flexDirection:'column', background:'#0D0D1A' }} lang="fr">
+      <h2 className="sr-only">Popit! — Jeu de mémoire</h2>
 
-      {state.phase === 'config' && (
+      {(state.phase === 'config') && (
         <GameConfig state={state} setConfig={setConfig} startGame={startGame} getBest={getBest} />
       )}
-      {state.phase === 'playing' && (
+      {(state.phase === 'playing' || state.phase === 'paused') && (
         <GameBoard
           state={state}
           spawnBubble={spawnBubble}
@@ -25,15 +26,12 @@ export default function App() {
           missBubble={missBubble}
           escapeBubble={escapeBubble}
           removeFeedback={removeFeedback}
+          togglePause={togglePause}
+          quitToMenu={quitToMenu}
         />
       )}
       {state.phase === 'gameover' && (
-        <GameOver
-          state={state}
-          onReplay={startGame}
-          onMenu={() => setConfig('phase', 'config')}
-          getBest={getBest}
-        />
+        <GameOver state={state} onReplay={startGame} onMenu={quitToMenu} getBest={getBest} />
       )}
     </div>
   );
