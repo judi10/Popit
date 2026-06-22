@@ -1,0 +1,17 @@
+.feedback-text {
+  position: absolute;
+  font-size: 20px;
+  font-weight: 900;
+  pointer-events: none;
+  z-index: 20;
+  animation: floatUp 0.85s ease-out forwards;
+}
+
+.feedback-text--success { color: var(--success); }
+.feedback-text--danger  { color: var(--danger); }
+
+@keyframes floatUp {
+  0%   { opacity: 1; transform: translateY(0) scale(1); }
+  60%  { opacity: 1; transform: translateY(-40px) scale(1.15); }
+  100% { opacity: 0; transform: translateY(-70px) scale(1); }
+}

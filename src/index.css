@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+:root {
+  --primary:       #7c3aed;
+  --primary-light: #a78bfa;
+  --secondary:     #2563eb;
+  --success:       #34d399;
+  --danger:        #f87171;
+  --warning:       #fbbf24;
+  --bg:            #0D0D1A;
+  --bg-card:       #12122a;
+  --bg-panel:      #1a1a32;
+  --border:        #2a2a50;
+  --text:          #ffffff;
+  --text-muted:    #8b8ba8;
+  --text-dim:      #5555aa;
+  --radius-sm:     8px;
+  --radius-md:     12px;
+  --radius-lg:     20px;
+  --radius-pill:   50px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#root {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+button { cursor: pointer; font-family: 'Nunito', sans-serif; }
+button:focus-visible { outline: 3px solid var(--primary-light); outline-offset: 3px; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}

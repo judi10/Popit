@@ -1,0 +1,68 @@
+.status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px 10px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  z-index: 10;
+  position: relative;
+}
+
+.stat-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-width: 60px;
+}
+
+.stat-block--center {
+  align-items: center;
+  flex: 1;
+  padding: 0 16px;
+}
+
+.stat-block--right { align-items: flex-end; }
+
+/* Gestalt : hiérarchie visuelle — label petit, valeur grande */
+.stat-label {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.stat-value {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--text);
+}
+
+.stat-value--score { color: var(--primary-light); }
+
+/* Progress bar */
+.round-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--bg-panel);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.round-bar__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 2px;
+  transition: width 0.25s linear;
+}
+
+.round-bar--urgent .round-bar__fill {
+  background: linear-gradient(90deg, var(--danger), var(--warning));
+}
+
+.lives { display: flex; gap: 3px; }
+.heart { font-size: 18px; transition: transform 0.2s; }
+.heart--empty { opacity: 0.4; }
